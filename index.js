@@ -12,26 +12,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // notiUrl: "OK" 텍스트 반환
-app.all("/notiUrl", (req, res) => {
-  console.log("✅ /notiUrl 호출됨:", req.method === "GET" ? req.query : req.body);
+app.post("/api/notiUrl", (req, res) => {
+  console.log("✅ /api/notiUrl 호출됨:", req.body);
   res.send("OK");
 });
 
 // cancelUrl & nextUrl: 요청 데이터 화면에 표시
 const handleRequest = (req, res) => {
-  const method = req.method;
-  const params = method === "GET" ? req.query : req.body;
+  console.log(`✅ ${req.path} 호출됨 (POST)`, req.body);
 
   let responseHtml = `
     <html>
     <head><title>URL Handler</title></head>
     <body>
-      <h2>${req.path} 호출됨 (${method})</h2>
+      <h2>${req.path} 호출됨 (POST)</h2>
       <ul>
   `;
 
-  Object.keys(params).forEach((key) => {
-    responseHtml += `<li><strong>${key}:</strong> ${params[key]}</li>`;
+  Object.keys(req.body).forEach((key) => {
+    responseHtml += `<li><strong>${key}:</strong> ${req.body[key]}</li>`;
   });
 
   responseHtml += `
@@ -44,8 +43,8 @@ const handleRequest = (req, res) => {
 };
 
 // cancelUrl, nextUrl 처리
-app.all("/cancelUrl", handleRequest);
-app.all("/nextUrl", handleRequest);
+app.post("/api/cancelUrl", handleRequest);
+app.post("/api/nextUrl", handleRequest);
 
 // "/" 경로로 접속하면 index.html 반환
 app.get("/", (req, res) => {
