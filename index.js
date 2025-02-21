@@ -43,7 +43,7 @@ const handleRequest = (req, res) => {
 };
 
 // cancelUrl, nextUrl 처리
-app.post("/api/cancelUrl", handleRequest);
+app.post("/api/cancUrl", handleRequest);
 app.post("/api/nextUrl", handleRequest);
 
 // "/" 경로로 접속하면 index.html 반환
