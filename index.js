@@ -1,11 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-// x-www-form-urlencoded 데이터를 파싱
+// x-www-form-urlencoded 데이터 파싱
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// 정적 파일 제공 (index.html 포함)
+app.use(express.static(path.join(__dirname, "public")));
 
 // notiUrl: "OK" 텍스트 반환
 app.all("/notiUrl", (req, res) => {
@@ -40,9 +44,14 @@ const handleRequest = (req, res) => {
 };
 
 // cancelUrl, nextUrl 처리
-app.all("/cancUrl", handleRequest);
+app.all("/cancelUrl", handleRequest);
 app.all("/nextUrl", handleRequest);
 
+// "/" 경로로 접속하면 index.html 반환
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-  });
+  console.log(`✅ 서버가 http://localhost:${port} 에서 실행 중입니다.`);
+});
