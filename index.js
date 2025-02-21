@@ -21,7 +21,7 @@ app.post("/api/notiUrl", (req, res) => {
 const handleRequest = (req, res) => {
   console.log(`✅ ${req.path} 호출됨 (POST)`, req.body);
 
-  let title = req.path === "/cancUrl" ? "결제 취소" : "결제 완료";
+  let title = req.path === "/api/cancUrl" ? "결제 취소" : "결제 완료";
 
   let responseHtml = `
     <html>
