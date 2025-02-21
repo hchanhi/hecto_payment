@@ -27,7 +27,7 @@ const handleRequest = (req, res) => {
     <html>
     <head><title>URL Handler</title></head>
     <body>
-      <h2>${title} (${method})</h2>
+      <h2>${title}</h2>
       <ul>
   `;
 
