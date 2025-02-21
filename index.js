@@ -69,8 +69,8 @@ const handleRequest = (req, res) => {
         <ul>
   `;
 
-  Object.keys(params).forEach((key) => {
-    responseHtml += `<li><strong>${key}:</strong> ${params[key]}</li>`;
+  Object.keys(req.body).forEach((key) => {
+    responseHtml += `<li><strong>${key}:</strong> ${req.body[key]}</li>`;
   });
 
   responseHtml += `
