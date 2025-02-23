@@ -81,12 +81,12 @@ const handleRequest = (req, res) => {
   responseHtml += `
       </ul>
     </div>
-    <script>
-      if (window.opener) {
-      console.log("안녕")
-        window.close();
-      }
-    </script>
+    // <script>
+    //   if (window.opener) {
+    //   console.log("안녕")
+    //     window.close();
+    //   }
+    // </script>
   </body>
   </html>
   `;
