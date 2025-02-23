@@ -1,5 +1,5 @@
 
-
+const analytics = require('@vercel/analytics');
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
