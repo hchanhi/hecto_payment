@@ -1,4 +1,4 @@
-import { Analytics } from "@vercel/analytics/react"
+
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -84,7 +84,6 @@ const handleRequest = (req, res) => {
         window.close();
       }
     </script>
-    <Analytics />
   </body>
   </html>
   `;
