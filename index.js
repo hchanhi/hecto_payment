@@ -84,6 +84,7 @@ const handleRequest = (req, res) => {
         window.close();
       }
     </script>
+    <Analytics />
   </body>
   </html>
   `;
