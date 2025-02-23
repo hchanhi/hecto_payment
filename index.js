@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react"
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -19,54 +21,54 @@ app.post("/api/notiUrl", (req, res) => {
 
 // cancelUrl & nextUrl: 요청 데이터 화면에 표시
 const handleRequest = (req, res) => {
-  console.log(`✅ ${req.path} 호출됨 (POST)`, req.body);
+  console.log(`✅ ${req.path} 호출됨 (POST)`);
   const method = req.method;
   let title = req.path === "/api/cancUrl" ? "결제 취소" : "결제 완료";
 
-    let responseHtml = `
-    <html>
-    <head>
-      <title>${title}</title>
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          background-color: #f4f4f9;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-        }
-        .container {
-          background-color: #fff;
-          border-radius: 8px;
-          padding: 20px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          text-align: center;
-        }
-        h2 {
-          color: #333;
-        }
-        ul {
-          list-style-type: none;
-          padding: 0;
-        }
-        li {
-          padding: 8px;
-          background-color: #f9f9f9;
-          margin: 4px 0;
-          border-radius: 4px;
-        }
-        strong {
-          color: #333;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <h2>${title} (${method})</h2>
-        <ul>
+  let responseHtml = `
+  <html>
+  <head>
+    <title>${title}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      h2 {
+        color: #333;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        padding: 8px;
+        background-color: #f9f9f9;
+        margin: 4px 0;
+        border-radius: 4px;
+      }
+      strong {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>${title} (${method})</h2>
+      <ul>
   `;
 
   Object.keys(req.body).forEach((key) => {
@@ -74,14 +76,21 @@ const handleRequest = (req, res) => {
   });
 
   responseHtml += `
-        </ul>
-      </div>
-    </body>
-    </html>
+      </ul>
+    </div>
+    <script>
+      if (window.opener) {
+      console.log("안녕")
+        window.close();
+      }
+    </script>
+  </body>
+  </html>
   `;
 
   res.send(responseHtml);
 };
+
 
 // cancelUrl, nextUrl 처리
 app.post("/api/cancUrl", handleRequest);
