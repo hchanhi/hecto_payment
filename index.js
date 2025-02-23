@@ -1,5 +1,4 @@
 
-const analytics = require('@vercel/analytics');
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -64,6 +63,10 @@ const handleRequest = (req, res) => {
         color: #333;
       }
     </style>
+    <script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
     <div class="container">
