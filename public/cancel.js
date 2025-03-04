@@ -132,12 +132,10 @@ function getCurrentDateTime() {
 
         function updateCodeOutput(data) {
           if (typeof data === "string" || data instanceof String) {
-            console.log("문자열입니다.");
             if (codeMirrorResInstance) {
               codeMirrorResInstance.setValue(data);
             }
           } else {
-            console.log("문자열아닙니다.");
             data = "요청데이터 =====> " + JSON.stringify(data, null, 2);
             if (codeMirrorReqInstance) {
               codeMirrorReqInstance.setValue(data);
