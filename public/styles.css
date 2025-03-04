@@ -1,0 +1,136 @@
+body 
+{
+    font-family: "Noto Sans KR", serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+
+  .headWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+    flex-wrap: wrap;
+
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+    margin-left: 30px;
+    max-width: 85%;
+    min-width: 280px;
+  }
+
+  .container, .code-output {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    flex: 1;
+    min-width: 280px;
+
+  }
+
+  .container {
+    max-width: 45%;
+  }
+
+  .code-output {
+    max-width: 90%;
+    margin-top: 20px;
+    width: 100%;
+    overflow: auto;
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+
+  input, select {
+    width: calc(60% - 16px);
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #FF6114;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white; 
+    background-color: #FF6114; 
+    border-radius: 12px;  
+    text-align: center;
+    line-height: 1.4; 
+  }
+
+  button:hover {
+    background-color: #ff4b14;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .CodeMirror {
+    height: 100%;
+    font-family: monospace;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    display: none; 
+  }
+
+  
+  .label-select-container {
+    display: flex;
+    flex-direction: column;  
+    margin-bottom: 20px;  
+  }
+
+
+  select {
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
