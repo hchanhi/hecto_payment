@@ -14,13 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const staticPath = path.join(__dirname, "public");
-console.log("📂 정적 파일 제공 경로:", staticPath);
 app.use(express.static(staticPath));
-
-app.use((req, res, next) => {
-  console.log(`📢 요청됨: ${req.method} ${req.url}`);
-  next();
-});
 
 // notiUrl: "OK" 텍스트 반환
 app.post("/api/notiUrl", (req, res) => {
