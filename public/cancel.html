@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Import Font -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>주문 취소 데이터 생성</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <!-- CodeMirror CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+  <script src="./script.js"></script>
+  <script src="./cancel.js"></script>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <h1>헥토파이낸셜 결제취소 테스트</h1>
+  <div class="wrapper">
+    <div class="headWrapper">
+      <h4>현 페이지는 헥토파이낸셜 개발지원 페이지를 참고하여 결제취소 호출 테스트를 진행하기 위해 제작한 페이지입니다.</h4>
+      <h3><a href="https://develop.sbsvc.online/16/onlineDocList.do" target="_blank">헥토파이낸셜 개발지원 사이트 링크</a></h3>
+      <h2>기본 정보 입력</h2>
+      <label for="hectoScript"><span class="badge">*</span> 연동 URL</label>
+      <select id="hectoScript" required>
+        <option value="https://tbgw.settlebank.co.kr/spay/APICancel.do" selected>테스트베드</option>
+        <option value="https://gw.settlebank.co.kr/spay/APICancel.do">상용 환경</option>
+      </select>
+      <label for="AES256_KEY"><span class="badge">*</span> 암호화 키 (AES256_KEY)</label>
+      <input type="text" id="AES256_KEY" value="pgSettle30y739r82jtd709yOfZ2yK5K" />
+      <label for="LICENSE_KEY"><span class="badge">*</span> 라이센스 키 (LICENSE_KEY)</label>
+      <input type="text" id="LICENSE_KEY" value="ST1009281328226982205" />
+    </div>
+    <div class="container">
+      <h1>주문 취소 요청</h1>
+      <form id="cancelForm">
+        <label for="mchtId">상점아이디 (mchtId)</label>
+        <select id="mchtId">
+          <option value="nxca_jt_il" selected>nxca_jt_il : 신용카드 인증 결제</option>
+          <option value="nxca_jt_bi">nxca_jt_bi : 신용카드 비인증 결제</option>
+        </select>
+        <label for="method">결제 수단 (method)</label>
+        <select id="method">
+          <option value="CA" selected>CA : 신용카드</option>
+          <option value="RA">RA : 계좌이체</option>
+        </select>
+        <label for="mchtTrdNo">가맹점 주문번호 (mchtTrdNo)</label>
+        <input type="text" id="mchtTrdNo" name="mchtTrdNo" required />
+        <label for="orgTrdNo">원거래번호 (orgTrdNo)</label>
+        <input type="text" id="orgTrdNo" name="orgTrdNo" required />
+        <label for="cnclAmt">취소 금액 (cnclAmt)</label>
+        <input type="text" id="cnclAmt" name="cnclAmt" required />
+        <label for="cnclRsn">취소 사유 (cnclRsn)</label>
+        <input type="text" id="cnclRsn" value="취소하고 싶어요" /><br />
+      </form>
+      <div class="code-output">
+        <button type="button" onclick="CancelRequest()">취소 요청</button>
+        <textarea id="codeOutputReq" style="display:none;"></textarea>
+        <textarea id="codeOutputRes" style="display:none;"></textarea>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
