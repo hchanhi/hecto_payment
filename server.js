@@ -72,7 +72,6 @@ app.post('/api/sendCancel', (req, res) => {
 app.post("/api/cancUrl", handleRequest);
 app.post("/api/nextUrl", handleRequest);
 
-// "/" 경로로 접속하면 index.html 반환
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "payment.html"));
 });
