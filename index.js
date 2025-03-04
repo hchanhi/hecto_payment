@@ -21,7 +21,7 @@ app.post("/api/notiUrl", (req, res) => {
   console.log("✅ /api/notiUrl 호출됨:", req.body);
   res.send("OK");
 });
-
+app.use(express.json());
 app.use(express.static("public")); // 정적 파일 제공
 
 const handleRequest = (req, res) => {
