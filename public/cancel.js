@@ -97,7 +97,8 @@ window.onload = function() {
         const curlCommand = 
         `curl --requset POST /
       --url "${hectorScriptUrl}" /
-      --header "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" /
+      --header "Content-Type: application/json; charset=UTF-8" \
+      --header "Accept: application/json" \
       --data '${JSON.stringify(requestData)}'`;
             
         updateCurlOutput(curlCommand);
