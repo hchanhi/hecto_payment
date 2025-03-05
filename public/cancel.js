@@ -129,7 +129,7 @@ window.onload = function() {
         codeMirrorReqInstance = CodeMirror.fromTextArea(document.getElementById("curlOutput"), {
           lineNumbers: true,
           mode: "shell",
-          theme: "dracula",  
+          theme: "default",  
           lineWrapping: false, 
           scrollbarStyle: "native",
           readOnly: true,
@@ -140,7 +140,7 @@ window.onload = function() {
         codeMirrorResInstance = CodeMirror.fromTextArea(document.getElementById("resOutput"), {
           lineNumbers: true,
           mode: "application/json",
-          theme: "dracula",  
+          theme: "default",  
           lineWrapping: false, 
           scrollbarStyle: "native",
           readOnly: true,
