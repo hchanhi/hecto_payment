@@ -95,8 +95,8 @@ window.onload = function() {
 
         // CURL 명령어 생성
         const curlCommand = 
-        `curl --requset POST /
-      --url "${hectorScriptUrl}" /
+        `curl --requset POST \
+      --url "${hectorScriptUrl}" \
       --header "Content-Type: application/json; charset=UTF-8" \
       --header "Accept: application/json" \
       --data '${JSON.stringify(requestData)}'`;
