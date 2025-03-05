@@ -106,7 +106,7 @@ window.onload = function() {
       function requestCancel() {
           // 서버로 요청 보내기
           $.ajax({
-            url: '/sendCancel', // Node.js 서버로 요청
+            url: '/api/sendCancel', // Node.js 서버로 요청
             type: 'POST',
             contentType: 'application/json; charset=UTF-8',
             data: JSON.stringify({
