@@ -12,7 +12,8 @@ function populateData() {
 
 function closeOrRedirect() {
     if (window.opener) {
-      window.close(); // 팝업 창을 닫기
+        window.opener.location.reload(); // 부모창 새로고침
+        window.close(); // 팝업 창을 닫기
     } else {
       window.location.href = "/"; // 메인 페이지로 이동
     }
