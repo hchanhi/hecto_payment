@@ -5,18 +5,22 @@ window.onload = function() {
     const { trdDt } = getCurrentDateTime();
     const { trdTm } = getCurrentDateTime();
     const mchtTrdNo = `ORDER${trdDt}${trdTm}`;
+    const requestData = "";
 
     initializeCodeMirror(); // CodeMirror 초기화
+    CancelRequest();
+
     document.getElementById("mchtTrdNo").value = mchtTrdNo;
+    document.addEventListener("input", CancelRequest);
+    document.addEventListener("change", CancelRequest);
   
   };
-
-function getCurrentDateTime() {
-  const now = new Date();
-  const trdDt = now.getFullYear() + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0');
-  const trdTm = String(now.getHours()).padStart(2, '0') + String(now.getMinutes()).padStart(2, '0') + String(now.getSeconds()).padStart(2, '0');
-  return { trdDt, trdTm };
-}
+  function getCurrentDateTime() {
+    const now = new Date();
+    const trdDt = now.getFullYear() + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0');
+    const trdTm = String(now.getHours()).padStart(2, '0') + String(now.getMinutes()).padStart(2, '0') + String(now.getSeconds()).padStart(2, '0');
+    return { trdDt, trdTm };
+  }
 
   function generatePktHashCnl(
     trdDt,
@@ -54,6 +58,7 @@ function getCurrentDateTime() {
         const cnclAmt = document.getElementById("cnclAmt").value;
         const method = document.getElementById("method").value;
         const cnclRsn = document.getElementById("cnclRsn").value;
+        const hectorScriptUrl = document.getElementById("hectoScript").value;
         const now = new Date();
       
         const pktHashCnl = generatePktHashCnl(
@@ -65,7 +70,7 @@ function getCurrentDateTime() {
           LICENSE_KEY
         );
       
-        const requestData = {
+        requestData = {
           params: {
             mchtId: mchtId,
             ver: "0A19",
@@ -87,58 +92,68 @@ function getCurrentDateTime() {
             cnclRsn: cnclRsn,
           },
         };
-      
-        // 서버로 요청 보내기
-        $.ajax({
-          url: '/api/sendCancel', // Node.js 서버로 요청
-          type: 'POST',
-          contentType: 'application/json; charset=UTF-8',
-          data: JSON.stringify({
-            requestData: requestData,
-            hectorScriptUrl: $('#hectoScript').val(), // 선택된 연동 URL
-          },
-          updateCodeOutput(requestData)
-        ),
-          success: function (response) {
-            const responseData = "응답데이터 =====> "+JSON.stringify(response, null, 2);
-            updateCodeOutput(responseData);
-            // alert('취소 요청이 성공적으로 전송되었습니다.');
-          },
-          error: function (error) {
-            console.error('서버 오류:', error);
-            alert('취소 요청 전송 중 오류가 발생했습니다.');
-          },
-        });
+
+        // CURL 명령어 생성
+        const curlCommand = 
+        `curl --requset POST /
+      --url "${hectorScriptUrl}" /
+      --header "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" /
+      --data '${JSON.stringify(requestData)}'`;
+            
+        updateCurlOutput(curlCommand);
+    }
+
+      function requestCancel() {
+          // 서버로 요청 보내기
+          $.ajax({
+            url: '/sendCancel', // Node.js 서버로 요청
+            type: 'POST',
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify({
+              requestData: requestData,
+              hectorScriptUrl: $('#hectoScript').val(), // 선택된 연동 URL
+            },
+          ),
+            success: function (response) {
+              const responseData = JSON.stringify(response, null, 2);
+              updateResOutput(responseData);
+            },
+            error: function (error) {
+              console.error('서버 오류:', error);
+              alert('취소 요청 전송 중 오류가 발생했습니다.');
+            },
+          });
       }
 
       function initializeCodeMirror() {
-        codeMirrorReqInstance = CodeMirror.fromTextArea(document.getElementById("codeOutputReq"), {
+        codeMirrorReqInstance = CodeMirror.fromTextArea(document.getElementById("curlOutput"), {
           lineNumbers: true,
-          mode: "javascript",
-          theme: "default",  
+          mode: "shell",
+          theme: "idea",  
+          lineWrapping: false, 
+          scrollbarStyle: "native",
           readOnly: true,
-          lineWrapping: true,
         });
 
-        codeMirrorResInstance = CodeMirror.fromTextArea(document.getElementById("codeOutputRes"), {
+        codeMirrorResInstance = CodeMirror.fromTextArea(document.getElementById("resOutput"), {
           lineNumbers: true,
-          mode: "javascript",
-          theme: "default",  
+          mode: "application/json",
+          theme: "idea",  
+          lineWrapping: false, 
+          scrollbarStyle: "native",
           readOnly: true,
-          lineWrapping: true,
         });
         }
 
 
-        function updateCodeOutput(data) {
-          if (typeof data === "string" || data instanceof String) {
-            if (codeMirrorResInstance) {
-              codeMirrorResInstance.setValue(data);
-            }
-          } else {
-            data = "요청데이터 =====> " + JSON.stringify(data, null, 2);
-            if (codeMirrorReqInstance) {
-              codeMirrorReqInstance.setValue(data);
-            }
+        function updateCurlOutput(data) {
+          if (codeMirrorReqInstance) {
+            codeMirrorReqInstance.setValue(data);
           }
-      }
+        }
+
+        function updateResOutput(data) {
+          if (codeMirrorResInstance) {
+            codeMirrorResInstance.setValue(data);
+          }
+        }
