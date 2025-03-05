@@ -87,10 +87,16 @@ function requestPay() {
 function initializeCodeMirror() {
 codeMirrorInstance = CodeMirror.fromTextArea(document.getElementById("codeOutput"), {
   lineNumbers: true,
-  mode: "javascript",
+  mode: "htmlmixed",
   theme: "default",  
   readOnly: true,
   lineWrapping: false,
+  matchTags: { bothTags: true }, // 태그 강조
+  autoCloseTags: true, // 자동 태그 닫기
+  autoCloseBrackets: true, // 자동 괄호 닫기
+  foldGutter: true,  // 코드 접기 기능 활성화
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  extraKeys: { "Ctrl-Space": "autocomplete" }, // 자동완성 기능 (Ctrl + Space)
 });
 }
 
