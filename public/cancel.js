@@ -129,19 +129,22 @@ window.onload = function() {
         codeMirrorReqInstance = CodeMirror.fromTextArea(document.getElementById("curlOutput"), {
           lineNumbers: true,
           mode: "shell",
-          theme: "idea",  
+          theme: "dracula",  
           lineWrapping: false, 
           scrollbarStyle: "native",
           readOnly: true,
+          fontFamily: "'Noto Sans KR', sans-serif"
+          
         });
 
         codeMirrorResInstance = CodeMirror.fromTextArea(document.getElementById("resOutput"), {
           lineNumbers: true,
           mode: "application/json",
-          theme: "idea",  
+          theme: "dracula",  
           lineWrapping: false, 
           scrollbarStyle: "native",
           readOnly: true,
+          fontFamily: "'Noto Sans KR', sans-serif"
         });
         }
 
