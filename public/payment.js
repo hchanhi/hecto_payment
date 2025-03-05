@@ -90,7 +90,7 @@ codeMirrorInstance = CodeMirror.fromTextArea(document.getElementById("codeOutput
   mode: "javascript",
   theme: "default",  
   readOnly: true,
-  lineWrapping: true,
+  lineWrapping: false,
 });
 }
 
