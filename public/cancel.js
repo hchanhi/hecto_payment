@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const AES256_KEY = document.getElementById("AES256_KEY").value;
-    const LICENSE_KEY = document.getElementById("LICENSE_KEY").value;
-    console.log("AES256_KEY : " + AES256_KEY); // 값 확인
-});
+let LICENSE_KEY;
+let AES256_KEY;
 
 window.onload = function() {
+    LICENSE_KEY = document.getElementById("LICENSE_KEY").value;
+    AES256_KEY = document.getElementById("AES256_KEY").value;
+  
     const { trdDt } = getCurrentDateTime();
     const { trdTm } = getCurrentDateTime();
     const mchtTrdNo = `ORDER${trdDt}${trdTm}`;
@@ -54,6 +54,9 @@ window.onload = function() {
   }
 
   function CancelRequest() {
+        LICENSE_KEY = document.getElementById("LICENSE_KEY").value;
+        AES256_KEY = document.getElementById("AES256_KEY").value;
+      
         const { trdDt, trdTm } = getCurrentDateTime();
         const mchtId = document.getElementById("mchtId").value;
         const mchtTrdNo = document.getElementById("mchtTrdNo").value;
