@@ -1,7 +1,10 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const AES256_KEY = document.getElementById("AES256_KEY").value;
+    const LICENSE_KEY = document.getElementById("LICENSE_KEY").value;
+    console.log("AES256_KEY : " + AES256_KEY); // 값 확인
+});
+
 window.onload = function() {
-    let LICENSE_KEY = document.getElementById("LICENSE_KEY").value;
-    let AES256_KEY = document.getElementById("AES256_KEY").value;
-  
     const { trdDt } = getCurrentDateTime();
     const { trdTm } = getCurrentDateTime();
     const mchtTrdNo = `ORDER${trdDt}${trdTm}`;
