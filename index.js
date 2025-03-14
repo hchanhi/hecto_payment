@@ -28,9 +28,6 @@ const handleRequest = (req, res) => {
   res.redirect(`/result.html?${queryParams}`);
 };
 
-app.post("/api/cancUrl", handleRequest);
-app.post("/api/nextUrl", handleRequest);
-
 
 // 클라이언트로부터 오는 POST 요청을 처리
 app.post('/api/sendCancel', (req, res) => {
@@ -79,6 +76,10 @@ app.get("/", (req, res) => {
 
 app.get("/cancel", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "cancel.html"));
+});
+
+app.get("/direct", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "direct.html"));
 });
 
 app.listen(port, () => {
