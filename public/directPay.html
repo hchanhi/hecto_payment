@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Import Font -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+  </style>
+  <title>헥토파이낸셜 스크립트 호출 테스트</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="https://tbnpg.settlebank.co.kr/resources/js/v1/SettlePG_v1.2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+
+  <!-- CodeMirror CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.css">
+
+<!-- CodeMirror JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/htmlmixed/htmlmixed.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closetag.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closebrackets.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/fold/xml-fold.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/hint/show-hint.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/hint/html-hint.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/hint/show-hint.css">
+
+
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./directPay.js"></script>
+</head>
+
+<body>
+  <h1>헥토파이낸셜 결제창 호출 테스트</h1>
+  <div class="headWrapper">
+      <h4>현 페이지는 헥토파이낸셜 개발지원 페이지를 참고하여 결제창 호출 테스트를 진행하기 위해 제작한 페이지 입니다.</h4>
+        <h3><a href="https://develop.sbsvc.online/16/onlineDocList.do" target="_blank">헥토파이낸셜 개발지원 사이트 링크</a></h3>
+        <h3><a href="/cancel.html" target="_blank">결제 취소 API 호출 테스트 페이지</a></h3>
+        <h2>기본 정보 입력</h2>
+      <label for="hectoUrl"><span style="color: red;">*</span>결제창 호출 URL </label>
+      <select id="hectoUrl" required >
+        <option value="https://tbnpg.settlebank.co.kr/card/main.do" selected>https://tbnpg.settlebank.co.kr/card/main.do : 테스트베드</option>
+        <option value="https://npg.settlebank.co.kr//card/main.do" >https://npg.settlebank.co.kr/card/main.do : 상용 환경</option>
+      </select>
+      <label for="AES256_KEY"><span style="color: red;">*</span>개인정보 및 중요정보 암호화키 <span class="badge">AES256_KEY</span></label>
+      <input type="text" id="AES256_KEY" value="pgSettle30y739r82jtd709yOfZ2yK5K"/>
+      <label for="LICENSE_KEY"><span style="color: red;">*</span>개인정보 암호키 <span class="badge">LICENSE_KEY</span></label>
+      <input type="text" id="LICENSE_KEY" value="ST1009281328226982205"/>
+    </div>
+
+  <div class="wrapper">
+    <div class="container">
+      <h2>파라미터 입력</h2>
+      
+        <img src="https://cdn-icons-png.flaticon.com/128/992/992703.png" alt="" class="refresh-icon">
+      </button>
+      <label for="mchtId"><span style="color: red;">*</span>상점아이디 <span class="badge">mchtId</span></label>
+      <select id="mchtId" required >
+        <option value="nxca_jt_il" selected>nxca_jt_il : 신용카드 인증 결제</option>
+        <option value="nxca_jt_bi">nxca_jt_bi : 신용카드 비인증 결제</option>
+        <option value="nxca_jt_gu">nxca_jt_gu : 신용카드 구인증 결제</option>
+        <option value="nx_mid_il">nx_mid_il : 문화/도서/해피/스마트문상/틴캐시/계좌이체/가상계좌/티머니</option>
+        <option value="nxca_payco">nxca_payco : 페이코 간편결제</option>
+        <option value="nxca_kakao">nxca_kakao : 카카오 간편결제</option>
+        <option value="nxhp_pl_il">nxhp_pl_il : 휴대폰 일반 결제</option>
+        <option value="nxhp_pl_hd">nxhp_pl_hd : 휴대폰 인증/승인 분리형</option>
+        <option value="nxhp_pl_ma">nxhp_pl_ma : 휴대폰 월 자동 결제</option>
+        <option value="nxpt_kt_il">nxpt_kt_il : 포인트 결제</option>
+      </select>
+
+      <label for="method"><span style="color: red;">*</span>결제수단 <span class="badge">method</span></label>
+      <select id="method" required>
+        <option value="card" selected>카드</option>
+        <option value="bank">계좌이체</option>
+        <option value="vbank">가상계좌</option>
+        <option value="mobile">휴대폰</option>
+      </select>
+
+      <label for="trdDt"><span style="color: red;">*</span>요청일자 <span class="badge">trdDt</span> </label>
+      <input type="text" id="trdDt" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="trdTm"><span style="color: red;">*</span>요청시간 <span class="badge">trdTm</span></label>
+      <input type="text" id="trdTm" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="trdTm"><span style="color: red;">*</span>상점주문번호 <span class="badge">mchtTrdNo</span></label>
+      <input type="text" id="mchtTrdNo" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="mchtName"><span style="color: red;">*</span>상점한글명 <span class="badge">mchtName</span></label>
+      <input type="text" id="mchtName" value="헥토파이낸셜 테스트 상점" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="mchtEName"><span style="color: red;">*</span>상점영문명 <span class="badge">mchtEName</span></label>
+      <input type="text" id="mchtEName" value="HectoFinancial Test Shop" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="pmtPrdtNm"><span style="color: red;">*</span>상품명 <span class="badge">pmtPrdtNm</span></label>
+      <input type="text" id="pmtPrdtNm" value="테스트 상품 정보" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="trdAmt"><span style="color: red;">*</span>결제금액 <span class="badge">trdAmt</span><span style="color: red;"> ※ AES 암호화</span></label>
+      <input type="text" id="trdAmt" value="10000" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="mchtCustNm">고객명 <span class="badge">mchtCustNm</span><span style="color: red;"> ※ AES 암호화</span></label>
+      <input type="text" id="mchtCustNm" value="홍길동" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="notiUrl"><span style="color: red;">*</span>결과처리 URL <span class="badge">notiUrl</span></label>
+      <input type="text" id="notiUrl" value="https://hecto-payment.vercel.app/api/notiUrl" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="nextUrl"><span style="color: red;">*</span>결과화면 URL <span class="badge">nextUrl</span></label>
+      <input type="text" id="nextUrl" value="https://hecto-payment.vercel.app/api/nextUrl" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="cancUrl"><span style="color: red;">*</span>결제취소 URL <span class="badge">cancUrl</span></label>
+      <input type="text" id="cancUrl" value="https://hecto-payment.vercel.app/api/cancUrl" required/>
+      <span class="error-message" style="display: none;">필수값 입니다.</span>
+
+      <label for="mchtParam">상점예약필드 <span class="badge">mchtParam</span></label>
+      <input type="text" id="mchtParam"/>
+
+      <label for="email">이메일 <span class="badge">email</span><span style="color: red;"> ※ AES 암호화</span></label>
+      <input type="text" id="email" value="honggildong@hecto.co.kr" />
+
+      <label for="cphoneNo">핸드폰번호 <span class="badge">cphoneNo</span></label>
+      <input type="text" id="cphoneNo" value="01012345678" />
+
+      <label for="type"><span style="color: red;">*</span>pktHash <span class="badge">상점아이디 + 결제수단 + 상점주문번호 + 요청일자 + 요청시간 + 거래금액(평문) + 해쉬키</span></label>
+      <input type="text" id="pktHash"/>
+    </div>
+    <div class="container">
+      <h2>결제창 호출 예제</h2>
+      <div class="code-output">
+        <button id="requestPay" onclick="requestPay()">결제창 호출</button>
+        <textarea id="codeOutput" style="display:none;"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
