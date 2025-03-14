@@ -150,23 +150,22 @@ function updateCodeOutput() {
       <input type="hidden" name="mchtParam" value="${mchtParam}">
       <input type="hidden" name="email" value="${encryptAES256ECB(email, AES256_KEY)}">
       <input type="hidden" name="pktHash" value="${pktHash}">
-      <button type="submit">Submit Payment</button>
+      <button type="submit">결제창 호출하기</button>
     </form>
   `;
 
   const html =`<!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Form</title>
+    <title>결제창 호출 테스트</title>
 </head>
 <body>
 ${formattedData}
 </body>
 </html>`;
 
-  // formData 변수에 데이터를 저장 (requestPay에서 재사용 가능)
   formData = formattedData;
 
   if (codeMirrorInstance) {
