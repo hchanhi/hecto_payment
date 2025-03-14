@@ -150,7 +150,7 @@ function updateCodeOutput() {
       <input type="hidden" name="mchtParam" value="${mchtParam}">
       <input type="hidden" name="email" value="${encryptAES256ECB(email, AES256_KEY)}">
       <input type="hidden" name="pktHash" value="${pktHash}">
-      <button type="submit">결제창 호출하기</button>
+      <button type="submit">결제창 호출</button>
     </form>
   `;
 
