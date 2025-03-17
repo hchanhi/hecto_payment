@@ -11,11 +11,12 @@ $(document).ready(function() {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const currentPath = window.location.pathname; // 현재 페이지 경로
+  const currentPath = window.location.pathname.replace(/\/$/, "");
   const menuLinks = document.querySelectorAll(".menu-link");
 
   menuLinks.forEach((link) => {
-    if (link.getAttribute("href") === currentPath) {
+    const linkPath = link.getAttribute("href").replace(/\/$/, ""); 
+    if (linkPath === currentPath) {
       link.classList.add("active");
     }
   });
