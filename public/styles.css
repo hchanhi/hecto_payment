@@ -190,6 +190,7 @@ select {
 
 .sidebar a:hover {
   background-color: rgba(255,97,20,0.2); 
+  border-radius: 5px;
 }
 
 .content {
