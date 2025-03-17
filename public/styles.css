@@ -191,16 +191,7 @@ select {
   padding: 10px;
 }
 
-.content,
-.headWrapper,
-.wrapper,
-.container,
-.code-output,
-.curl-output,
-.res-output {
-  margin-left: 240px; /* sidebar 너비(200px) + 좌우 패딩(20px*2) 고려한 여백 */
-}
-
 .content {
-  padding:20px;
+  margin-left: 220px; /* 메뉴바 너비와 패딩을 고려한 여백 */
+  padding: 20px;
 }
