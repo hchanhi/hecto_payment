@@ -166,7 +166,7 @@ select {
   left: 0;
   width: 200px;
   height: 100%;
-  background-color: transparent; /* 투명 배경 */
+  background-color: transparent; 
   padding: 20px;
   border-right: 1px solid #ddd;
 }
@@ -181,18 +181,18 @@ select {
 }
 
 .sidebar a {
-  display: block; /* 링크 영역 전체 클릭 가능하도록 설정 */
+  display: block; 
   text-decoration: none;
-  color: #ff6114; /* 글씨 색상 */
+  color: #ff6114;
   
-  padding:10px; /* 기본 상태에서도 패딩 적용 (hover와 동일하게 유지) */
+  padding:10px; 
 }
 
 .sidebar a:hover {
-  background-color: rgba(255,97,20,0.2); /* hover 시 배경색만 변경 */
+  background-color: rgba(255,97,20,0.2); 
 }
 
 .content {
-  margin-left:240px; /* sidebar 너비(200px) + padding(20px*2) 여백 확보 */
+  margin-left:240px; 
   padding:20px;
 }
