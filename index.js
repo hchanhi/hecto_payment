@@ -79,7 +79,7 @@ app.get("/cancel", (req, res) => {
 });
 
 app.get("/direct", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "direct.html"));
+  res.sendFile(path.join(__dirname, "public", "directPay.html"));
 });
 
 app.listen(port, () => {
