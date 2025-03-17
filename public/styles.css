@@ -191,7 +191,7 @@ select {
   padding: 10px;
 }
 
-.content {
-  margin-left: 220px; /* 메뉴바 너비와 패딩을 고려한 여백 */
+.content, .headWrapper {
+  margin-left: 240px; /* 메뉴바 너비(200px) + 좌우 패딩(20px) + 여유공간 */
   padding: 20px;
 }
