@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-router.post('/sendCancel', (req, res) => {
+router.post('/api/sendCancel', (req, res) => {
   const requestData = req.body.requestData;
   const hectorScriptUrl = req.body.hectorScriptUrl; // 클라이언트에서 보내는 목적지 URL
   console.log(requestData);
