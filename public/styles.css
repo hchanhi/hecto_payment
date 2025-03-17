@@ -159,3 +159,39 @@ select {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* 투명 배경 */
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #ff6114; /* 글씨 색상 */
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 97, 20, 0.2); /* 호버 효과 */
+  padding: 10px;
+}
+
+.content {
+  margin-left: 220px; /* 메뉴바 너비와 패딩을 고려한 여백 */
+  padding: 20px;
+}
