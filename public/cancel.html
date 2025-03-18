@@ -57,12 +57,16 @@
               <option value="nxhp_pl_ma">nxhp_pl_ma : 휴대폰 월 자동 결제</option>
               <option value="nxpt_kt_il">nxpt_kt_il : 포인트 결제</option>
             </datalist>
-          <label for="method"><span style="color: red;">*</span>결제수단 <span class="badge">method</span></label>
-          <select id="method">
-            <option value="CA" selected>CA : 신용카드</option>
+          <label for="method2">
+            <span style="color: red;">*</span>결제수단 
+            <span class="badge">method</span>
+          </label>
+          <input type="text" id="method2" list="method2-options" required />
+          <datalist id="method2-options">
+            <option value="CA">CA : 신용카드</option>
             <option value="RA">RA : 계좌이체</option>
             <option value="PZ">PZ : 간편결제</option>
-          </select>
+          </datalist>
           <label for="mchtTrdNo"><span style="color: red;">*</span>가맹점 주문번호 <span class="badge">mchtTrdNo</span></label>
           <input type="text" id="mchtTrdNo" name="mchtTrdNo" required />
           <label for="orgTrdNo"><span style="color: red;">*</span>원거래번호 <span class="badge">orgTrdNo</span></label>
