@@ -73,13 +73,17 @@
             <option value="nxpt_kt_il">nxpt_kt_il : 포인트 결제</option>
           </datalist>
 
-      <label for="method"><span style="color: red;">*</span>결제수단 <span class="badge">method</span></label>
-      <select id="method" required>
-        <option value="card" selected>카드</option>
-        <option value="bank">계좌이체</option>
-        <option value="vbank">가상계좌</option>
-        <option value="mobile">휴대폰</option>
-      </select>
+        <label for="method1">
+          <span style="color: red;">*</span>결제수단 
+          <span class="badge">method</span>
+        </label>
+        <input type="text" id="method1" list="method1-options" required />
+        <datalist id="method1-options">
+          <option value="card">카드</option>
+          <option value="bank">계좌이체</option>
+          <option value="vbank">가상계좌</option>
+          <option value="mobile">휴대폰</option>
+        </datalist>
 
       <label for="trdDt"><span style="color: red;">*</span>요청일자 <span class="badge">trdDt</span> </label>
       <input type="text" id="trdDt" required/>
