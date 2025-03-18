@@ -44,7 +44,7 @@
         <h2>파라미터 입력</h2>
         <form id="cancelForm">
         <label for="mchtId">상점아이디 선택 또는 직접 입력:</label>
-          <input type="text" id="mchtId" list="mchtId-options" required />
+          <input type="text" id="mchtId" list="mchtId-options" value="nxca_jt_il" required />
             <datalist id="mchtId-options">
               <option value="nxca_jt_il">nxca_jt_il : 신용카드 인증 결제</option>
               <option value="nxca_jt_bi">nxca_jt_bi : 신용카드 비인증 결제</option>
@@ -61,7 +61,7 @@
             <span style="color: red;">*</span>결제수단 
             <span class="badge">method</span>
           </label>
-          <input type="text" id="method" list="method-options" required />
+          <input type="text" id="method" list="method-options" value="CA" required />
           <datalist id="method-options">
             <option value="CA">CA : 신용카드</option>
             <option value="RA">RA : 계좌이체</option>
