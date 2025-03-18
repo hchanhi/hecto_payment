@@ -57,20 +57,20 @@
   <div class="wrapper">
     <div class="container">
       <h2>파라미터 입력</h2>
-      <label for="mchtId"><span style="color: red;">*</span>상점아이디 <span class="badge">mchtId</span></label>
-      <select id="mchtId" required >
-        <option value="nxca_jt_il" selected>nxca_jt_il : 신용카드 인증 결제</option>
-        <option value="nxca_jt_bi">nxca_jt_bi : 신용카드 비인증 결제</option>
-        <option value="nxca_jt_gu">nxca_jt_gu : 신용카드 구인증 결제</option>
-        <option value="nxca_ks_gu">nxca_ks_gu : 신용카드 구인증 비결제</option>
-        <option value="nx_mid_il">nx_mid_il : 문화/도서/해피/스마트문상/틴캐시/계좌이체/가상계좌/티머니</option>
-        <option value="nxca_payco">nxca_payco : 페이코 간편결제</option>
-        <option value="nxca_kakao">nxca_kakao : 카카오 간편결제</option>
-        <option value="nxhp_pl_il">nxhp_pl_il : 휴대폰 일반 결제</option>
-        <option value="nxhp_pl_hd">nxhp_pl_hd : 휴대폰 인증/승인 분리형</option>
-        <option value="nxhp_pl_ma">nxhp_pl_ma : 휴대폰 월 자동 결제</option>
-        <option value="nxpt_kt_il">nxpt_kt_il : 포인트 결제</option>
-      </select>
+      <label for="mchtId">결제수단 선택 또는 직접 입력:</label>
+        <input type="text" id="mchtId" list="mchtId-options" required />
+        <datalist id="mchtId-options">
+          <option value="nxca_jt_il">nxca_jt_il : 신용카드 인증 결제</option>
+          <option value="nxca_jt_bi">nxca_jt_bi : 신용카드 비인증 결제</option>
+          <option value="nxca_jt_gu">nxca_jt_gu : 신용카드 구인증 결제</option>
+          <option value="nx_mid_il">nx_mid_il : 문화/도서/해피/스마트문상/틴캐시/계좌이체/가상계좌/티머니</option>
+          <option value="nxca_payco">nxca_payco : 페이코 간편결제</option>
+          <option value="nxca_kakao">nxca_kakao : 카카오 간편결제</option>
+          <option value="nxhp_pl_il">nxhp_pl_il : 휴대폰 일반 결제</option>
+          <option value="nxhp_pl_hd">nxhp_pl_hd : 휴대폰 인증/승인 분리형</option>
+          <option value="nxhp_pl_ma">nxhp_pl_ma : 휴대폰 월 자동 결제</option>
+          <option value="nxpt_kt_il">nxpt_kt_il : 포인트 결제</option>
+        </datalist>
 
       <label for="method"><span style="color: red;">*</span>결제수단 <span class="badge">method</span></label>
       <select id="method" required>
