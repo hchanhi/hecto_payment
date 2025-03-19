@@ -47,7 +47,6 @@ h1 {
 
 .container {
   max-width: 45%;
-  display: inline-block;
 }
 
 .code-output,
