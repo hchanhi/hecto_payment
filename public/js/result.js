@@ -11,12 +11,12 @@ function populateData() {
   }
 
 function adjustContainerWidth() {
-  const container = document.querySelector(".container");
+  const wrapper = document.querySelector(".wrapper");
   
-  if (container) {
+  if (wrapper) {
     const textLength = container.textContent.length; // 텍스트 길이 계산
     console.log(`텍스트 길이: ${textLength}`);
-    container.style.width = `${textLength * 8}px`; // 글자당 픽셀 수 곱하기
+    wrapper.style.width = `${textLength * 8}px`; // 글자당 픽셀 수 곱하기
   }
 }
 
