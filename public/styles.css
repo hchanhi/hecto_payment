@@ -47,7 +47,6 @@ h1 {
 
 .container {
   max-width: 45%;
-  width: fit-content;
 }
 
 .code-output,
