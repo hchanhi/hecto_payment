@@ -24,5 +24,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const text = container.textContent;
 
   const textLength = text.length;
+    console.log(textLength)
   container.style.width = `${textLength * 8}px`;
 });
