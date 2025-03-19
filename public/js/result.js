@@ -18,3 +18,11 @@ function closeOrRedirect() {
       window.location.href = "/"; // 메인 페이지로 이동
     }
   }
+
+window.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".container");
+  const text = container.textContent;
+
+  const textLength = text.length;
+  container.style.width = `${textLength * 8}px`;
+});
