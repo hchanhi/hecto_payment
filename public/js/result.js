@@ -1,3 +1,4 @@
+window.onload = populateData;
 function populateData() {
     const params = new URLSearchParams(window.location.search);
     const list = document.getElementById("data-list");
@@ -6,9 +7,18 @@ function populateData() {
       li.innerHTML = `<strong>${key}:</strong> ${value}`;
       list.appendChild(li);
     });
+      adjustContainerWidth();
   }
-  window.onload = populateData;
 
+function adjustContainerWidth() {
+  const container = document.querySelector(".container");
+  
+  if (container) {
+    const textLength = container.textContent.length; // 텍스트 길이 계산
+    console.log(`텍스트 길이: ${textLength}`);
+    container.style.width = `${textLength * 8}px`; // 글자당 픽셀 수 곱하기
+  }
+}
 
 function closeOrRedirect() {
     if (window.opener) {
@@ -18,12 +28,3 @@ function closeOrRedirect() {
       window.location.href = "/"; // 메인 페이지로 이동
     }
   }
-
-window.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".container");
-  const text = container.textContent;
-
-  const textLength = text.length;
-    console.log(textLength)
-  container.style.width = `${textLength * 8}px`;
-});
