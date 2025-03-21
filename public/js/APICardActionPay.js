@@ -11,11 +11,11 @@ window.onload = function() {
     const requestData = "";
 
     initializeCodeMirror(); // CodeMirror 초기화
-    RequestData();
+    ApiRequest();
 
     document.getElementById("mchtTrdNo").value = mchtTrdNo;
-    document.addEventListener("input", RequestData);
-    document.addEventListener("change", RequestData);
+    document.addEventListener("input", ApiRequest);
+    document.addEventListener("change", ApiRequest);
   
   };
   function getCurrentDateTime() {
@@ -53,7 +53,7 @@ window.onload = function() {
     }).toString();
   }
 
-  function CancelRequest() {
+  function ApiRequest() {
         LICENSE_KEY = document.getElementById("LICENSE_KEY").value;
         AES256_KEY = document.getElementById("AES256_KEY").value;
       
