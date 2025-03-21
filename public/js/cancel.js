@@ -56,6 +56,7 @@ window.onload = function() {
   function CancelRequest() {
         LICENSE_KEY = document.getElementById("LICENSE_KEY").value;
         AES256_KEY = document.getElementById("AES256_KEY").value;
+        document.getElementById("mchtTrdNo").value = mchtTrdNo;
       
         const { trdDt, trdTm } = getCurrentDateTime();
         const mchtId = document.getElementById("mchtId").value;
