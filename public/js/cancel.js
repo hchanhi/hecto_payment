@@ -66,9 +66,8 @@ window.onload = function() {
         const cnclRsn = document.getElementById("cnclRsn").value;
         const cnclOrd = document.getElementById("cnclOrd").value;
         const hectorScriptUrl = document.getElementById("hectoScript").value;
-        const now = new Date();
-
         document.getElementById("mchtTrdNo").value = mchtTrdNo;
+        const now = new Date();
       
         const pktHashCnl = generatePktHashCnl(
           trdDt,
