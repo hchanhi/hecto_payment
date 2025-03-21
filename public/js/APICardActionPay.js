@@ -11,11 +11,11 @@ window.onload = function() {
     const requestData = "";
 
     initializeCodeMirror(); // CodeMirror 초기화
-    CancelRequest();
+    RequestData();
 
     document.getElementById("mchtTrdNo").value = mchtTrdNo;
-    document.addEventListener("input", CancelRequest);
-    document.addEventListener("change", CancelRequest);
+    document.addEventListener("input", RequestData);
+    document.addEventListener("change", RequestData);
   
   };
   function getCurrentDateTime() {
