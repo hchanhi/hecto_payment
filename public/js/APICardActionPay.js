@@ -70,7 +70,7 @@ window.onload = function() {
         const instmtMon = document.getElementById("instmtMon").value;
         const crcCd = document.getElementById("crcCd").value;
         const trdAmt = document.getElementById("trdAmt").value;
-        // const pmtprdNm = document.getElementById("pmtprdNm").value;
+        const pmtprdNm = document.getElementById("pmtprdNm").value;
         const hectorScriptUrl = document.getElementById("hectoScript").value;
         const now = new Date();
       
