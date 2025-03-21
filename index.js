@@ -1,12 +1,12 @@
 const { app, port } = require('./server/serverConfig');
 const path = require('path');
 const notiUrlRouter = require('./server/routes/notiUrl');
-const sendCancelRouter = require('./server/routes/sendCancel');
+const sendRouter = require('./server/routes/send');
 const handleRequest = require('./server/routes/handleRequest');
 const errorHandler = require('./server/routes/errorHandler');
 
 app.post('/api/notiUrl', notiUrlRouter);
-app.post('/api/send', sendCancelRouter);
+app.post('/api/send', sendRouter);
 
 app.post("/api/cancUrl", handleRequest);
 app.post("/api/nextUrl", handleRequest);
