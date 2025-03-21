@@ -100,7 +100,6 @@ window.onload = function() {
             pktHash: pktHashCnl,
             crcCd: "KRW",
             pmtprdNm : pmtprdNm,
-            orgTrdNo: orgTrdNo,
             mchtCustNm  :  mchtCustNm,
             mchtCustId: mchtCustId,
             cardNo : encryptAES256ECB(cardNo),
