@@ -127,7 +127,7 @@ window.onload = function() {
       function trdAmt() {
           // 서버로 요청 보내기
           $.ajax({
-            url: '/api/APICardActionPay', // Node.js 서버로 요청
+            url: '/api/send', // Node.js 서버로 요청
             type: 'POST',
             contentType: 'application/json; charset=UTF-8',
             data: JSON.stringify({
