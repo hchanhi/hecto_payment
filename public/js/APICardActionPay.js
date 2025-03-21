@@ -110,7 +110,7 @@ window.onload = function() {
             vldDtYear : encryptAES256ECB(vldDtYear, AES256_KEY), 
             idntNo : encryptAES256ECB(idntNo, AES256_KEY),
             cardPwd : encryptAES256ECB(cardPwd, AES256_KEY),
-            instmtMon : encryptAES256ECB(instmtMon, AES256_KEY),
+            instmtMon : instmtMon,
             crcCd : crcCd,
             trdAmt : encryptAES256ECB(trdAmt, AES256_KEY)
           },
