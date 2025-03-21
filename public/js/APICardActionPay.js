@@ -37,7 +37,7 @@ window.onload = function() {
       console.error("License key is missing!");
       return null;
     }
-    const rawData = `${trdDt}${trdTm}${mchtId}${mchtTrdNo}${cnclAmt}${LICENSE_KEY}`;
+    const rawData = `${trdDt}${trdTm}${mchtId}${mchtTrdNo}${trdAmt}${LICENSE_KEY}`;
     return CryptoJS.SHA256(rawData).toString(CryptoJS.enc.Hex);
   }
 
