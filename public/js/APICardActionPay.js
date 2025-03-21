@@ -123,7 +123,7 @@ window.onload = function() {
         updateCurlOutput(curlCommand);
     }
 
-      function trdAmt() {
+      function request() {
           // 서버로 요청 보내기
           $.ajax({
             url: '/api/send', // Node.js 서버로 요청
