@@ -56,7 +56,6 @@ window.onload = function() {
   function ApiRequest() {
         LICENSE_KEY = document.getElementById("LICENSE_KEY").value;
         AES256_KEY = document.getElementById("AES256_KEY").value;
-        document.getElementById("mchtTrdNo").value = mchtTrdNo;
       
         const { trdDt, trdTm } = getCurrentDateTime();
         const mchtId = document.getElementById("mchtId").value;
@@ -74,6 +73,8 @@ window.onload = function() {
         const pmtprdNm = document.getElementById("pmtprdNm").value;
         const hectorScriptUrl = document.getElementById("hectoScript").value;
         const now = new Date();
+
+        document.getElementById("mchtTrdNo").value = mchtTrdNo;
       
         const pktHashCnl = generatePktHashCnl(
           trdDt,
