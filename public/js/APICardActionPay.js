@@ -79,7 +79,7 @@ window.onload = function() {
           trdTm,
           mchtId,
           mchtTrdNo,
-          cnclAmt,
+          trdAmt,
           LICENSE_KEY
         );
       
