@@ -65,6 +65,7 @@ window.onload = function() {
         const mchtCustId = document.getElementById("mchtCustId").value;
         const cardNo = document.getElementById("cardNo").value;
         const vldDtMon = document.getElementById("vldDtMon").value;
+        const vldDtYear = document.getElementById("vldDtYear").value;
         const idntNo = document.getElementById("idntNo").value;
         const cardPwd = document.getElementById("cardPwd").value;
         const instmtMon = document.getElementById("instmtMon").value;
@@ -105,7 +106,8 @@ window.onload = function() {
             mchtCustNm  :  mchtCustNm,
             mchtCustId: mchtCustId,
             cardNo : encryptAES256ECB(cardNo, AES256_KEY),
-            vldDtMon : encryptAES256ECB(vldDtMon, AES256_KEY), 
+            vldDtMon : encryptAES256ECB(vldDtMon, AES256_KEY),
+            vldDtYear : encryptAES256ECB(vldDtYear, AES256_KEY), 
             idntNo : encryptAES256ECB(idntNo, AES256_KEY),
             cardPwd : encryptAES256ECB(cardPwd, AES256_KEY),
             instmtMon : encryptAES256ECB(instmtMon, AES256_KEY),
