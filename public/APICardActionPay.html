@@ -94,15 +94,18 @@
           <label for="cardPwd"><span style="color: red;">*</span>카드비밀번호 앞 2자리 <span class="badge">cardPwd</span><span style="color: red;"> ※ AES 암호화 / 구인증만 사용</span></label>
           <input type="text" id="cardPwd" value="12" required/>
 
-          <label for="instmtMon"><span style="color: red;">*</span>할부개월수 2자리 <span class="badge">instmtMon</span><span style="color: red;"> ※ AES 암호화 / 구인증만 사용</span></label>
+          <label for="instmtMon"><span style="color: red;">*</span>할부개월수 2자리 <span class="badge">instmtMon</span><span style="color: red;"> ※ AES 암호화</span></label>
           <input type="text" id="instmtMon" value="00" required/>
+          <span class="error-message" style="display: none;">필수값 입니다.</span>
 
-          <label for="crcCd"><span style="color: red;">*</span>통화구분 <span class="badge">crcCd</span><span style="color: red;"> ※ AES 암호화 / 구인증만 사용</span></label>
+          <label for="crcCd"><span style="color: red;">*</span>통화구분 <span class="badge">crcCd</span><span style="color: red;"> ※ AES 암호화</span></label>
           <input type="text" id="crcCd" value="KRW" required/>
+          <span class="error-message" style="display: none;">필수값 입니다.</span>
         
 
           <label for="trdAmt"><span style="color: red;">*</span>거래금액 <span class="badge">trdAmt</span></label>
           <input type="text" id="trdAmt" name="trdAmt" value="1000" required />
+          <span class="error-message" style="display: none;">필수값 입니다.</span>
 
         </form>
       </div>
