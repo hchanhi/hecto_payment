@@ -102,13 +102,13 @@ window.onload = function() {
             pmtprdNm : pmtprdNm,
             mchtCustNm  :  mchtCustNm,
             mchtCustId: mchtCustId,
-            cardNo : encryptAES256ECB(cardNo),
-            vldDtMon : encryptAES256ECB(vldDtMon), 
-            idntNo : encryptAES256ECB(idntNo),
-            cardPwd : encryptAES256ECB(cardPwd),
-            instmtMon : encryptAES256ECB(instmtMon),
+            cardNo : encryptAES256ECB(cardNo, AES256_KEY),
+            vldDtMon : encryptAES256ECB(vldDtMon, AES256_KEY), 
+            idntNo : encryptAES256ECB(idntNo, AES256_KEY),
+            cardPwd : encryptAES256ECB(cardPwd, AES256_KEY),
+            instmtMon : encryptAES256ECB(instmtMon, AES256_KEY),
             crcCd : crcCd,
-            trdAmt : encryptAES256ECB(trdAmt)
+            trdAmt : encryptAES256ECB(trdAmt, AES256_KEY)
           },
         };
 
