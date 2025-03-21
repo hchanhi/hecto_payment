@@ -64,6 +64,7 @@ window.onload = function() {
         const cnclAmt = document.getElementById("cnclAmt").value;
         const method = document.getElementById("method").value;
         const cnclRsn = document.getElementById("cnclRsn").value;
+        const cnclOrd = document.getElementById("cnclOrd").value;
         const hectorScriptUrl = document.getElementById("hectoScript").value;
         const now = new Date();
       
@@ -94,7 +95,7 @@ window.onload = function() {
             crcCd: "KRW",
             orgTrdNo: orgTrdNo,
             cnclAmt: encryptAES256ECB(cnclAmt, AES256_KEY),
-            cnclOrd: "001",
+            cnclOrd: cnclOrd,
             cnclRsn: cnclRsn,
           },
         };
