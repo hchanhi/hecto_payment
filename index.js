@@ -1,7 +1,7 @@
 const { app, port } = require('./server/serverConfig');
 const path = require('path');
 const notiUrlRouter = require('./server/routes/notiUrl');
-const sendRouter = require('./server/routes/send');
+const sendRouter = require('./server/routes/sendApi');
 const handleRequest = require('./server/routes/handleRequest');
 const errorHandler = require('./server/routes/errorHandler');
 
