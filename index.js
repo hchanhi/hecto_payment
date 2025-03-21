@@ -6,7 +6,7 @@ const handleRequest = require('./server/routes/handleRequest');
 const errorHandler = require('./server/routes/errorHandler');
 
 app.post('/api/notiUrl', notiUrlRouter);
-app.post('/api/sendCancel', sendCancelRouter);
+app.post('/api/send', sendCancelRouter);
 
 app.post("/api/cancUrl", handleRequest);
 app.post("/api/nextUrl", handleRequest);
