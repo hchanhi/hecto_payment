@@ -8,12 +8,12 @@ window.onload = function() {
     const { trdDt } = getCurrentDateTime();
     const { trdTm } = getCurrentDateTime();
     const mchtTrdNo = `ORDER${trdDt}${trdTm}`;
+    document.getElementById("mchtTrdNo").value = mchtTrdNo;
     const requestData = "";
 
     initializeCodeMirror(); // CodeMirror 초기화
     ApiRequest();
 
-    document.getElementById("mchtTrdNo").value = mchtTrdNo;
     document.addEventListener("input", ApiRequest);
     document.addEventListener("change", ApiRequest);
   
