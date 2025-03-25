@@ -25,7 +25,7 @@ window.onload = function() {
     return { trdDt, trdTm };
   }
 
-  function generatePktHashCnl(
+  function generatepktHash(
     trdDt,
     trdTm,
     mchtId,
@@ -77,7 +77,7 @@ window.onload = function() {
 
         document.getElementById("mchtTrdNo").value = mchtTrdNo;
       
-        const pktHashCnl = generatePktHashCnl(
+        const pktHash = generatepktHash(
           trdDt,
           trdTm,
           mchtId,
@@ -100,7 +100,7 @@ window.onload = function() {
             osType: "W",
           },
           data: {
-            pktHash: pktHashCnl,
+            pktHash: pktHash,
             crcCd: "KRW",
             pmtprdNm : pmtprdNm,
             mchtCustNm  :  mchtCustNm,
