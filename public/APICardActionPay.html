@@ -46,23 +46,32 @@
     <div class="wrapper">
       <div class="container">
         <h2>파라미터 입력</h2>
-        <form id="cancelForm">
-        <label for="mchtId"><span style="color: red;">*</span>상점아이디 <span class="badge">mchtId</span></label>
+         <form id="cancelForm">
+         <label for="mchtId"><span style="color: red;">*</span>상점아이디 <span class="badge">mchtId</span></label>
           <input type="text" id="mchtId" list="mchtId-options" value="nxca_jt_bi" required />
             <datalist id="mchtId-options">
               <option value="nxca_jt_bi">nxca_jt_bi : 신용카드 비인증 결제</option>
               <option value="nxca_jt_gu">nxca_jt_gu : 신용카드 구인증 결제</option>
             </datalist>
-          <label for="method">
+           <label for="method">
             <span style="color: red;">*</span>결제수단 
             <span class="badge">method</span>
-          </label>
-          <input type="text" id="method" list="method-options" value="CA" required />
-          <datalist id="method-options">
+           </label>
+           <input type="text" id="method" list="method-options" value="CA" required />
+            <datalist id="method-options">
             <option value="CA">CA : 신용카드(고정값)</option>
-          </datalist>
-          <label for="mchtTrdNo"><span style="color: red;">*</span>가맹점 주문번호 <span class="badge">mchtTrdNo</span></label>
-          <input type="text" id="mchtTrdNo" name="mchtTrdNo" required />
+           </datalist>
+          
+           <label for="mchtTrdNo"><span style="color: red;">*</span>가맹점 주문번호 <span class="badge">mchtTrdNo</span></label>
+           <input type="text" id="mchtTrdNo" name="mchtTrdNo" required />
+
+           <label for="trdDt"><span style="color: red;">*</span>요청일자 <span class="badge">trdDt</span> </label>
+           <input type="text" id="trdDt" required/>
+           <span class="error-message" style="display: none;">필수값 입니다.</span>
+    
+           <label for="trdTm"><span style="color: red;">*</span>요청시간 <span class="badge">trdTm</span></label>
+           <input type="text" id="trdTm" required/>
+           <span class="error-message" style="display: none;">필수값 입니다.</span>
 
           <label for="pmtprdNm"><span style="color: red;">*</span>상품명 <span class="badge">pmtprdNm</span></label>
           <input type="text" id="pmtprdNm" value="테스트 상품 정보" required/>
