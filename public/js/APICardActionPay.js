@@ -9,6 +9,8 @@ window.onload = function() {
     const { trdTm } = getCurrentDateTime();
     const mchtTrdNo = `ORDER${trdDt}${trdTm}`;
     document.getElementById("mchtTrdNo").value = mchtTrdNo;
+    document.getElementById("trdDt").value = trdDt;
+    document.getElementById("trdTm").value = trdTm;
     const requestData = "";
 
     initializeCodeMirror(); // CodeMirror 초기화
