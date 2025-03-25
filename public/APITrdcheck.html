@@ -31,7 +31,7 @@
   <div class="content">
   <h1>헥토파이낸셜 테스트 페이지</h1>
     <div class="headWrapper">
-      <h4>현 페이지는 헥토파이낸셜 개발지원 페이지를 참고하여 신용카드 결제  API 호출 테스트를 진행하기 위해 제작한 페이지입니다.</h4>
+      <h4>현 페이지는 헥토파이낸셜 개발지원 페이지를 참고하여 실시간 거래조회  API 호출 테스트를 진행하기 위해 제작한 페이지입니다.</h4>
       <h2>기본 정보 입력</h2>
       <label for="hectoScript"><span style="color: red;">*</span>연동 URL</label>
       <select id="hectoScript" required>
@@ -48,7 +48,7 @@
         <h2>파라미터 입력</h2>
         <form id="cancelForm">
         <label for="mchtId"><span style="color: red;">*</span>상점아이디 <span class="badge">mchtId</span></label>
-          <input type="text" id="mchtId" list="mchtId-options" value="nxca_jt_bi" required />
+          <input type="text" id="mchtId" list="mchtId-options" value="nxca_jt_il" required />
             <datalist id="mchtId-options">
               <option value="nxca_jt_il">nxca_jt_il : 신용카드 인증 결제</option>
               <option value="nxca_jt_bi">nxca_jt_bi : 신용카드 비인증 결제</option>
@@ -79,14 +79,14 @@
           </label>
           <input type="text" id="method" list="method-options" value ="card" required />
             <datalist id="method-options">
-              <option value="card">카드</option>
-              <option value="bank">계좌이체</option>
-              <option value="vbank">가상계좌</option>
-              <option value="mobile">휴대폰</option>
+              <option value="CA">카드</option>
+              <option value="RA">계좌이체</option>
+              <option value="VA">가상계좌</option>
+              <option value="MP">휴대폰</option>
             </datalist>
 
           <label for="trdAmt"><span style="color: red;">*</span>거래금액 <span class="badge">trdAmt</span></label>
-          <input type="text" id="trdAmt" name="trdAmt" value="1000" required />
+          <input type="text" id="trdAmt" name="trdAmt" value="10000" required />
           <span class="error-message" style="display: none;">필수값 입니다.</span>
 
           <label for="orgTrdDt"><span style="color: red;">*</span>원 거래 일자 <span class="badge">orgTrdDt</span></label>
