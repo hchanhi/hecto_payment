@@ -27,6 +27,10 @@ app.get("/APICardActionPay", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "APICardActionPay.html"));
 });
 
+app.get("/APITrdcheck", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "APITrdcheck.html"));
+});
+
 app.use(errorHandler); // 에러 핸들러는 모든 라우트 뒤에 위치해야 합니다.
 
 app.listen(port, () => {
